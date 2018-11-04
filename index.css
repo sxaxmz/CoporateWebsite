@@ -1,5 +1,5 @@
 #header {
-	height: 450px;
+	height: 100%;
 	background-position: center;
 	background-position: fixed;
 	background-repeat: no-repeat;
@@ -10,20 +10,18 @@
 }
 
 .landingNav {
-	width: 100%;
+	width: 85%;
 	background-color: #ffffff;
 	border-radius: 2em;
-	margin: 15px;
+	margin: 20px auto;
 }
 
 .tab-content {
 	background-color: #ffffff;
 	opacity: 0.6;
 	border-radius: 3em;
-	margin: 15px auto;
-	width: 95%;
-	height: 215px;
-	max-height: 215px;
+	margin: 25px auto;
+    height: 75%;
 }
 
 .tab-content p {
@@ -44,9 +42,11 @@
 
 #content {
 	background-color: #CFE0E8;
+    height: 100%;
 }
 
 .jumbotron {
+  text-align: center;
 	border-radius: 3em !important;
 	height: 100%;
 	max-width: 75%;
@@ -60,6 +60,10 @@
 
 .country {
 	text-align: center;
+}
+
+.country a {
+	margin: 10px auto;
 }
 
 .navbar .navbar-collapse {
@@ -129,7 +133,6 @@ hr {
 }
 
 .mySlides img {
-	max-height: 240px;
 	margin-top: 20px;
 }
 /* Next & previous buttons */
@@ -263,3 +266,83 @@ hr {
 	width: 90%;
 	margin: 10px;
 }
+
+@media all and (min-width: 1024px) and (max-width:1300px) {
+	}
+
+@media all and (min-width: 720px) and (max-width:1023px) {
+
+	}
+
+@media all and (min-width: 500px) and (max-width:719px) {
+	}
+
+@media all and (max-width:499px) and (min-width:421px){ 
+		.slideshow-container {
+	  max-width: 95%;
+	  position: relative;
+	  margin: 0 auto;
+}
+
+	.slideshow-container img {
+		height: 95%;
+		margin-top: 20px;
+}
+  
+  .imgCaption {
+    font-size: 10px
+  }
+   .jumbotron {
+       max-width: 90%;
+  }
+  .country a {
+       width: 65%;
+  }
+	}
+
+@media all and (max-width:420px) and (min-width:371px){
+  
+	.slideshow-container {
+  max-width: 95%;
+  position: relative;
+  margin: 0 auto;
+}
+
+	.slideshow-container img {
+		height: 95%;
+		margin-top: 20px;
+}
+  
+  .imgCaption {
+    font-size: 10px
+  }
+   .jumbotron {
+       max-width: 90%;
+  }
+  .country a {
+       width: 65%;
+  }
+	}
+
+@media all and (max-width:370px){
+	.slideshow-container {
+	  max-width: 95%;
+	  position: relative;
+	  margin: 0 auto;
+}
+
+	.slideshow-container img {
+		height: 95%;
+		margin-top: 20px;
+}
+  
+  .imgCaption {
+    font-size: 10px
+  }
+   .jumbotron {
+       max-width: 90%;
+  }
+  .country a {
+       width: 65%;
+  }
+	}
