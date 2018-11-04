@@ -1,0 +1,265 @@
+#header {
+	height: 450px;
+	background-position: center;
+	background-position: fixed;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.landingNav {
+	width: 100%;
+	background-color: #ffffff;
+	border-radius: 2em;
+	margin: 15px;
+}
+
+.tab-content {
+	background-color: #ffffff;
+	opacity: 0.6;
+	border-radius: 3em;
+	margin: 15px auto;
+	width: 95%;
+	height: 215px;
+	max-height: 215px;
+}
+
+.tab-content p {
+	margin: 35px;
+	font-weight: 600px;
+	font-size: 16px;
+	font-style: "Comic Sans MS", cursive, sans-serif;
+}
+
+.tab-content h3 {
+	font-style: "Comic Sans MS", cursive, sans-serif;
+	font-weight: Bold;
+	padding-top: 35px;
+	margin-left: 35px;
+	font-weight: 600px;
+	font-size: 16px;
+}
+
+#content {
+	background-color: #CFE0E8;
+}
+
+.jumbotron {
+	border-radius: 3em !important;
+	height: 100%;
+	max-width: 75%;
+	background: contain;
+	margin: 0 auto;
+}
+
+.container {
+	padding-top: 15px;
+}
+
+.country {
+	text-align: center;
+}
+
+.navbar .navbar-collapse {
+	text-align: center !important;
+}
+
+.qa-top-page {
+	background-color: #d7d7d7;
+	height: 160px;
+}
+
+#contentQA {
+	background-color: #CFE0E8;
+	height: 100%;
+}
+
+#QALogo img {
+	height: 130px;
+	width: 150px;
+	margin: 20px;
+}
+
+.footer {
+    width: 100%;
+    background-color: #000;
+    height: 120px;
+    padding-bottom: 10px;
+    bottom:0;
+}
+
+.footer img {
+	margin-bottom: 8px;
+}
+
+.footer  a:hover{
+	color: #fff;
+	text-decoration: none;
+}
+
+.footer a {
+	color: #5E6C7D;
+}
+
+.footer-items {
+	margin-top: 30px;
+}
+
+.center {
+	margin: 5px auto;
+	text-align: center;
+}
+
+hr {
+	max-width: 75%;
+	background-color: #99caff;
+	border-radius: 1em;
+}
+
+											/** Beginning of slideshow **/
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.mySlides img {
+	max-height: 240px;
+	margin-top: 20px;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  border-radius: 2em;
+}
+
+.imgCaption {
+	font-weight: 650;
+	background-color: #d7d7d7;
+	border-radius: 3em;
+	max-width: 50%;
+	opacity: 0.7;
+	margin: 0 auto;
+	font-size: 15px;
+	padding: 6px 8px;
+	position: absolute;
+	bottom: 8px;
+	margin-left: 25%;
+	text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2.5s;
+  animation-name: fade;
+  animation-duration: 2.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .imgCaption {font-size: 11px}
+}
+											/** End of slideshow **/
+
+#content1 {
+	margin: 25px;
+}
+
+#leftContent {
+	text-align: center;	
+}
+
+#rightContent {
+	text-align: center;
+}
+
+.textContent {
+	margin-top: 25px;
+	border-radius: 2em;
+	max-width: 95%;
+	background: linear-gradient(to top left, #ffffff 0%, #ccccff 100%);
+}
+
+.textContent p {
+	margin: 15px;
+	font-weight: 600;
+	
+}
+
+.mediaContent {
+	border-radius: 11em;
+	background: linear-gradient(to top right, #33ccff 0%, #ff99cc 100%);
+	cursor: pointer;
+}
+
+.mediaContent:hover {
+	background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
+	opacity: 0.9;
+}
+
+.mediaContent img {
+	border-radius: 2em;
+	width: 90%;
+	margin: 10px;
+}
