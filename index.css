@@ -122,19 +122,45 @@ hr {
 	border-radius: 1em;
 }
 
+.dropdown-item {
+	color: #007BFF;
+}
+
+.dropdown-item:hover {
+	color: #fff;
+	background-color: #007BFF;
+}
+
 											/** Beginning of slideshow **/
 * {box-sizing:border-box}
 
+#slideImg {
+	padding-top: 5px; 
+}
+
 /* Slideshow container */
 .slideshow-container {
-  max-width: 800px;
-  position: relative;
-  margin: 0 auto;
+	max-width: 100%;
+	height: 300px;
+	position: relative;
+	margin: 0 auto; 
+	background-color: #3C3C3C;
+}
+
+.mySlides {
+	text-align: center;
+	max-height: 290px;
+	
 }
 
 .mySlides img {
-	margin-top: 20px;
+	border-radius: 2em;
+	width: 95%; 
+	height: 285px;
+    margin-top: 5px;
 }
+
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -143,23 +169,20 @@ hr {
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white;
+  color: #fff !important;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
 }
 
 /* Position the "next button" to the right */
 .next {
   right: 0;
-  border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-  border-radius: 2em;
+  color: #000 !important;
 }
 
 .imgCaption {
@@ -168,13 +191,12 @@ hr {
 	border-radius: 3em;
 	max-width: 50%;
 	opacity: 0.7;
-	margin: 0 auto;
 	font-size: 15px;
 	padding: 6px 8px;
 	position: absolute;
 	bottom: 8px;
-	margin-left: 25%;
-	text-align: center;
+    left: 40%;
+    right:40%
 }
 
 /* Number text (1/3 etc) */
@@ -186,6 +208,11 @@ hr {
   top: 0;
 }
 
+.dots-section {
+  position: absolute;
+  top:2%;
+  left: 48%;
+}
 /* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
@@ -198,7 +225,7 @@ hr {
   transition: background-color 0.6s ease;
 }
 
-.dot:hover {
+.dot-active, .dot:hover {
   background-color: #717171;
 }
 
@@ -271,26 +298,89 @@ hr {
 	}
 
 @media all and (min-width: 720px) and (max-width:1023px) {
-
-	}
-
-@media all and (min-width: 500px) and (max-width:719px) {
-	}
-
-@media all and (max-width:499px) and (min-width:421px){ 
-		.slideshow-container {
-	  max-width: 95%;
+  .slideshow-container {
 	  position: relative;
 	  margin: 0 auto;
 }
 
-	.slideshow-container img {
-		height: 95%;
-		margin-top: 20px;
+	.mySlides img {
+	width: 85%;
+	height: 275px;
+    margin-top: 10px;
 }
   
   .imgCaption {
-    font-size: 10px
+    font-size: 10px;
+    bottom: 12px;
+    right:30%;
+    left: 30%  
+  }
+  
+  .dots-section {
+    top: 4%;
+    left:48%;
+  }
+   .jumbotron {
+       max-width: 90%;
+  }
+  .country a {
+       width: 65%;
+  }
+  	}
+
+@media all and (min-width: 500px) and (max-width:719px) {
+  .slideshow-container {
+	  position: relative;
+	  margin: 0 auto;
+}
+
+	.mySlides img {
+	width: 85%;
+	height: 275px;
+    margin-top: 10px;
+}
+  
+  .imgCaption {
+    font-size: 10px;
+    bottom: 12px;
+    right:30%;
+    left: 30%  
+  }
+  
+  .dots-section {
+    top: 4%;
+    left:47%;
+  }
+   .jumbotron {
+       max-width: 90%;
+  }
+  .country a {
+       width: 65%;
+  }
+	}
+
+@media all and (max-width:499px) and (min-width:421px){ 
+	.slideshow-container {
+	  position: relative;
+	  margin: 0 auto;
+}
+
+	.mySlides img {
+	width: 85%;
+	height: 275px;
+    margin-top: 10px;
+}
+  
+  .imgCaption {
+    font-size: 10px;
+    bottom: 12px;
+    right:30%;
+    left: 30%  
+  }
+  
+  .dots-section {
+    top: 4%;
+    left:45%;
   }
    .jumbotron {
        max-width: 90%;
@@ -303,18 +393,26 @@ hr {
 @media all and (max-width:420px) and (min-width:371px){
   
 	.slideshow-container {
-  max-width: 95%;
-  position: relative;
-  margin: 0 auto;
+	  position: relative;
+	  margin: 0 auto;
 }
 
-	.slideshow-container img {
-		height: 95%;
-		margin-top: 20px;
+	.mySlides img {
+	width: 85%;
+	height: 275px;
+    margin-top: 10px;
 }
   
   .imgCaption {
-    font-size: 10px
+    font-size: 10px;
+    bottom: 12px;
+    right:30%;
+    left: 30%  
+  }
+  
+  .dots-section {
+    top: 4%;
+    left:45%;
   }
    .jumbotron {
        max-width: 90%;
@@ -326,18 +424,26 @@ hr {
 
 @media all and (max-width:370px){
 	.slideshow-container {
-	  max-width: 95%;
 	  position: relative;
 	  margin: 0 auto;
 }
 
-	.slideshow-container img {
-		height: 95%;
-		margin-top: 20px;
+	.mySlides img {
+	width: 85%;
+	height: 275px;
+    margin-top: 10px;
 }
   
   .imgCaption {
-    font-size: 10px
+    font-size: 10px;
+    bottom: 12px;
+    right:30%;
+    left: 30%  
+  }
+  
+  .dots-section {
+    top: 4%;
+    left:45%;
   }
    .jumbotron {
        max-width: 90%;

@@ -4,15 +4,29 @@ var slideImg = document.getElementById("slideImg");
 var header = document.getElementById("qa-top-page");
 var contentQA1Left = document.getElementById("leftContent");
 var contentQA1Right = document.getElementById("rightContent");
-											/** slideshow **/
-
-logo();
-var content,src,caption,length,img,text,tag,position; 
-jsonImg(src,caption,length);
+var content,src,caption,length,img,text,tag,position,slideIndex;
+slideIndex = 0; 
 tag = "qa";
 
-var slideIndex = 0;
+logo(tag, img);
+jsonImg(src,caption,length);
 showSlides(slideIndex);
+
+function slideHoverEffect(slideContainer,next,previous){
+  next.onmouseover = function (){
+  slideContainer.style.background = "linear-gradient(to right, #3c3c3c 90%, #ffffff 100%)";
+  }
+  next.onmouseout = function (){
+    slideContainer.style.background = "#3c3c3c";
+  }
+
+  previous.onmouseover = function (){
+    slideContainer.style.background = "linear-gradient(to left, #3c3c3c 90%, #ffffff 100%)";
+  }
+  previous.onmouseout = function (){
+    slideContainer.style.background = "#3c3c3c";
+  }
+}
 
 // Next/previous controls
 function plusSlides(n) {
@@ -37,10 +51,10 @@ function showSlides() {
       console.log("slideIndex -->"+slideIndex); 
     }    
     for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].className = dots[i].className.replace(" dot-active", "");
     }
     slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].className += " active";
+    dots[slideIndex-1].className += " dot-active";
     setTimeout(showSlides, 3000); 
 }
 
@@ -48,8 +62,8 @@ function initializeSlides (src,caption,length){
 
 content += '<div class="mySlides fade">'+
           ' <!-- <div class="numbertext">'+length+'</div> -->'+
-          '<img src="'+src+'" style="width:100%">'+
-          '<div class="imgCaption"><span>'+caption+'</span></div>'+
+          '<a href=""><img src="'+src+'" alt="'+caption+'"></a>'+
+          '<div class="imgCaption center"><span>'+caption+'</span></div>'+
           '</div>';
 }
 
@@ -67,28 +81,29 @@ function jsonImg (src,caption,length) {
   });
   content +=  '   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>'+
               '   <a class="next" onclick="plusSlides(1)">&#10095;</a>'+
-              '</div>'+
-              '<br>'+
-              '<div class="center">';
+              '   <div class="dots-section">';
       for (var i = 0; i< arrayLength; i++){
    content += '    <span class="dot" onclick="currentSlide('+(i+1)+')"></span>';
  }
-   content +=  '</div>';
+   content +=  '</div>'+
+               '</div>';
 
    content += '<hr>';
   slideImg.innerHTML = content;
+  var next = document.querySelectorAll(".next")[0];
+  var previous = document.querySelectorAll(".prev")[0];
+  var slideContainer = document.querySelectorAll(".slideshow-container")[0];
+  slideHoverEffect(slideContainer,next,previous);
 }
 
-function logo (){
-  var images, tag;
+function logo (tag, img){
   var json = JSON.parse(logos);
   json.forEach(function(item){
-    if (item["tag"] == "qa"){
-      image = item["img"];
-      tag = item["tag"];
+    if (item["tag"] == tag){
+      img = item["img"];
     }
   });
-  QALogo.innerHTML = "<img src="+image+" alt="+tag+">";
+  QALogo.innerHTML = "<img src="+img+" alt="+tag+">";
 }
 
 grab_imgs(img);
@@ -161,6 +176,5 @@ function setContent (img, text, position){
     console.log(content+" <--> "+position);
     contentQA1Left.innerHTML = content;
   }  
-
-  
+ 
 }
