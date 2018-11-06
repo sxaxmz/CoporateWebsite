@@ -15,7 +15,6 @@ logo(tag, img);
 getDropdownList(tag,id,title,text);
 jsonImg(src,caption,length);
 showSlides(slideIndex);
-homeContent();
 
 function slideHoverEffect(slideContainer,next,previous){
   next.onmouseover = function (){
@@ -209,6 +208,7 @@ function getDropdownList (tag,id,title,text){
   lifeAtContent.innerHTML = content;
   var dropdownItem = document.querySelectorAll(".dropdown-item");
   showtabs(dropdownItem);
+  homeContent(dropdownItem);
 }
 function setDropdownItems (id,title){
   content = '<a class="dropdown-item" id="pills-'+id+'-tab" data-toggle="pill" href="#'+id+'" '+
@@ -235,13 +235,15 @@ function showtabs(dropdownItem){
   });
 }
 
-function homeContent (){
+function homeContent (tabContent){
   var homeContents = document.querySelectorAll(".homeContent");
   var homePage = document.querySelectorAll(".homePage");
   homePage[0].onclick = function (){
+      tabContent.forEach(function(el){
+      el.classList.remove("active");
+    });
     homeContents.forEach(function (el){
       if (!el.classList.contains("active")){
-        console.log("Doesn' contains");
           el.classList.add("active"); 
       }
     });
