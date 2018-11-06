@@ -4,11 +4,15 @@ var slideImg = document.getElementById("slideImg");
 var header = document.getElementById("qa-top-page");
 var contentQA1Left = document.getElementById("leftContent");
 var contentQA1Right = document.getElementById("rightContent");
-var content,src,caption,length,img,text,tag,position,slideIndex;
+var dropdownList = document.getElementById("dropdownList");
+var lifeAtContent = document.getElementById("lifeAtContent");
+var content,src,caption,length,img,text,tag,position,slideIndex,title,id;
+i = 0;
 slideIndex = 0; 
 tag = "qa";
 
 logo(tag, img);
+getDropdownList(tag,id,title,text);
 jsonImg(src,caption,length);
 showSlides(slideIndex);
 
@@ -48,7 +52,6 @@ function showSlides() {
     slideIndex++;
     if (slideIndex > slides.length) {
       slideIndex = 1
-      console.log("slideIndex -->"+slideIndex); 
     }    
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" dot-active", "");
@@ -77,7 +80,6 @@ function jsonImg (src,caption,length) {
     length = (index+1)+"/"+array.length;
     arrayLength = array.length;
     initializeSlides (src,caption,length);
-    console.log(index+" <--> "+src+"  <--> "+ caption+"  <-->"+length);
   });
   content +=  '   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>'+
               '   <a class="next" onclick="plusSlides(1)">&#10095;</a>'+
@@ -131,7 +133,6 @@ function getContent(tag,img,text,position){
     if (tag == item["tag"]){
       img = item["img"];
       position = item["position"];
-      console.log(index+"  -->"+tag+" <- "+position+" -> "+ img);
       setContent(img,text,position);
     }
   });
@@ -143,7 +144,6 @@ function getContent(tag,img,text,position){
     if (tag == item["tag"]){
       text = item["text"];
       position = item["position"];
-      console.log(index+"  -->"+tag+" <- "+position+" -> "+ text);
       setContent(img,text,position);
     }
   });
@@ -160,7 +160,6 @@ function setContent (img, text, position){
       contentQA1Right.classList.add("mediaContent");
       content = '<img src="../images/'+img+'">';
    }
-    console.log(text+" <--> "+position);
     contentQA1Right.innerHTML = content;
   }
   
@@ -173,8 +172,63 @@ function setContent (img, text, position){
       contentQA1Left.classList.add("mediaContent");
       content = '<img src="../images/'+img+'">';
     }
-    console.log(content+" <--> "+position);
     contentQA1Left.innerHTML = content;
   }  
  
+}
+
+function getDropdownList (tag,id,title,text){
+  var titles = [],ids = [];
+  var json = JSON.parse(dropdownItems);
+  json.forEach(function(item,index){
+    if (tag == item["tag"]){
+        id = item["elId"];
+        title = item["title"];
+        ids.push(id);
+        titles.push(title);
+        setDropdownItems(id,title);
+    }
+  });
+
+  json = JSON.parse(dropdownTabs);
+  content = '<div class="tab-content center" data-target="#pills-tab">';
+  json.forEach(function(item,index){
+    if (tag == item["tag"]){
+        id = item["elId"];
+        text = item["txtContent"];
+        for (var i =0; i<ids.length; i++){
+          if (id == ids[i]){
+          title = titles[i];
+          } 
+        }  
+      setDropdownTabs(id,title,text);
+    }
+  }); 
+  content += '</div>';
+  lifeAtContent.innerHTML = content;
+  var dropdownItem = document.querySelectorAll(".dropdown-item");
+  showtabs(dropdownItem);
+}
+function setDropdownItems (id,title){
+  content = '<a class="dropdown-item" id="pills-'+id+'-tab" data-toggle="pill" href="#'+id+'" '+
+            'role="tab" aria-controls="pills-'+id+'" aria-selected="false">'+title+'</a>';
+  dropdownList.innerHTML += content; 
+}
+
+function setDropdownTabs(id,title,text){
+  content +=  '<div id="'+id+'" class="tab-pane fade show" role="tabpanel" aria-labelledby="pills-'+id+'-tab">'+
+              '<h3>'+title+'</h3>'+
+              '<p>'+text+'</p>'+
+              '</div>';
+}
+function showtabs(dropdownItem){
+
+  dropdownItem.forEach(function(el){
+    el.onclick = function (){
+      for (var i=0; i<dropdownItem.length; i++){
+      dropdownItem[i].classList.remove("active");
+      }
+      slideImg.classList.remove("active");
+    }
+  });
 }

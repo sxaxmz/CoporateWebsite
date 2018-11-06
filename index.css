@@ -131,10 +131,26 @@ hr {
 	background-color: #007BFF;
 }
 
+.tab-content h3 {
+	color: #000;
+	font-family: 'GlacialIndifferenceRegular';
+	font-size:22px;
+}
+
+#lifeAtContent {
+	padding-top: 5px;
+	margin: 0 10px;
+}
+
+.active {
+	display: block !important;
+}
+
 											/** Beginning of slideshow **/
 * {box-sizing:border-box}
 
 #slideImg {
+	display: none;
 	padding-top: 5px; 
 }
 
