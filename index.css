@@ -78,6 +78,7 @@
 #contentQA {
 	background-color: #CFE0E8;
 	height: 100%;
+	padding-bottom: 12%;
 }
 
 #QALogo img {
@@ -89,9 +90,9 @@
 .footer {
     width: 100%;
     background-color: #000;
-    height: 120px;
-    padding-bottom: 10px;
-    bottom:0;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
 }
 
 .footer img {
@@ -144,6 +145,49 @@ hr {
 
 .active {
 	display: block !important;
+}
+
+#content1 {
+	display: none;
+	margin: 25px;
+}
+
+#leftContent {
+	text-align: center;	
+}
+
+#rightContent {
+	text-align: center;
+}
+
+.textContent {
+	margin-top: 25px;
+	border-radius: 2em;
+	max-width: 95%;
+	background: linear-gradient(to top left, #ffffff 0%, #ccccff 100%);
+}
+
+.textContent p {
+	margin: 15px;
+	font-weight: 600;
+	
+}
+
+.mediaContent {
+	border-radius: 11em;
+	background: linear-gradient(to top right, #33ccff 0%, #ff99cc 100%);
+	cursor: pointer;
+}
+
+.mediaContent:hover {
+	background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
+	opacity: 0.9;
+}
+
+.mediaContent img {
+	border-radius: 2em;
+	width: 90%;
+	margin: 10px;
 }
 
 											/** Beginning of slideshow **/
@@ -267,48 +311,6 @@ hr {
   .imgCaption {font-size: 11px}
 }
 											/** End of slideshow **/
-
-#content1 {
-	margin: 25px;
-}
-
-#leftContent {
-	text-align: center;	
-}
-
-#rightContent {
-	text-align: center;
-}
-
-.textContent {
-	margin-top: 25px;
-	border-radius: 2em;
-	max-width: 95%;
-	background: linear-gradient(to top left, #ffffff 0%, #ccccff 100%);
-}
-
-.textContent p {
-	margin: 15px;
-	font-weight: 600;
-	
-}
-
-.mediaContent {
-	border-radius: 11em;
-	background: linear-gradient(to top right, #33ccff 0%, #ff99cc 100%);
-	cursor: pointer;
-}
-
-.mediaContent:hover {
-	background: linear-gradient(to bottom left, #33ccff 0%, #ff99cc 100%);
-	opacity: 0.9;
-}
-
-.mediaContent img {
-	border-radius: 2em;
-	width: 90%;
-	margin: 10px;
-}
 
 @media all and (min-width: 1024px) and (max-width:1300px) {
 	}

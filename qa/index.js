@@ -15,6 +15,7 @@ logo(tag, img);
 getDropdownList(tag,id,title,text);
 jsonImg(src,caption,length);
 showSlides(slideIndex);
+homeContent();
 
 function slideHoverEffect(slideContainer,next,previous){
   next.onmouseover = function (){
@@ -229,6 +230,21 @@ function showtabs(dropdownItem){
       dropdownItem[i].classList.remove("active");
       }
       slideImg.classList.remove("active");
+      contentQA1.classList.remove("active");
     }
   });
+}
+
+function homeContent (){
+  var homeContents = document.querySelectorAll(".homeContent");
+  var homePage = document.querySelectorAll(".homePage");
+  homePage[0].onclick = function (){
+    homeContents.forEach(function (el){
+      if (!el.classList.contains("active")){
+        console.log("Doesn' contains");
+          el.classList.add("active"); 
+      }
+    });
+  }
+  
 }
