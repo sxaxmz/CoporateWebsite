@@ -12,7 +12,7 @@ slideIndex = 0;
 tag = "qa";
 
 logo(tag, img);
-getDropdownList(tag,id,title,text);
+getDropdownList(tag,id,title,text,img);
 jsonImg(src,caption,length);
 showSlides(slideIndex);
 
@@ -89,8 +89,6 @@ function jsonImg (src,caption,length) {
  }
    content +=  '</div>'+
                '</div>';
-
-   content += '<hr>';
   slideImg.innerHTML = content;
   var next = document.querySelectorAll(".next")[0];
   var previous = document.querySelectorAll(".prev")[0];
@@ -126,7 +124,7 @@ function deploy_imgs (img){
 getContent(tag,img,text,position);
 function getContent(tag,img,text,position){
   
-  var jsonImg = JSON.parse(imgs);
+  var jsonImg = JSON.parse(mainImgs);
   jsonImg.forEach(function(item,index){
     text = "";
     img = "";
@@ -137,7 +135,7 @@ function getContent(tag,img,text,position){
     }
   });
 
-  var jsonText = JSON.parse(texts);
+  var jsonText = JSON.parse(mainTexts);
   jsonText.forEach(function(item,index){
     text = "";
     img = "";
@@ -177,7 +175,7 @@ function setContent (img, text, position){
  
 }
 
-function getDropdownList (tag,id,title,text){
+function getDropdownList (tag,id,title,text,img){
   var titles = [],ids = [];
   var json = JSON.parse(dropdownItems);
   json.forEach(function(item,index){
@@ -196,19 +194,25 @@ function getDropdownList (tag,id,title,text){
     if (tag == item["tag"]){
         id = item["elId"];
         text = item["txtContent"];
+        if (item["img"] !== "") {
+          img = item["img"];
+        } else {
+          img = "";
+        }
         for (var i =0; i<ids.length; i++){
           if (id == ids[i]){
           title = titles[i];
           } 
         }  
-      setDropdownTabs(id,title,text);
+      setDropdownTabs(id,title,text,img);
     }
   }); 
   content += '</div>';
   lifeAtContent.innerHTML = content;
   var dropdownItem = document.querySelectorAll(".dropdown-item");
+  var tabPane = document.querySelectorAll(".tab-pane");
   showtabs(dropdownItem);
-  homeContent(dropdownItem);
+  homeContent(dropdownItem,tabPane);
 }
 function setDropdownItems (id,title){
   content = '<a class="dropdown-item" id="pills-'+id+'-tab" data-toggle="pill" href="#'+id+'" '+
@@ -216,11 +220,25 @@ function setDropdownItems (id,title){
   dropdownList.innerHTML += content; 
 }
 
-function setDropdownTabs(id,title,text){
-  content +=  '<div id="'+id+'" class="tab-pane fade show" role="tabpanel" aria-labelledby="pills-'+id+'-tab">'+
+function setDropdownTabs(id,title,text,img){
+  content +=  '<div id="'+id+'" class="tab-pane fade show row" role="tabpanel" aria-labelledby="pills-'+id+'-tab">'+             
               '<h3>'+title+'</h3>'+
-              '<p>'+text+'</p>'+
-              '</div>';
+              '<hr>'; 
+  if (img !== "") { 
+    content +=  '<div class="container">'+
+                '  <div class="row">'+
+                '    <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12" style="height: 280px;">'+
+                '      <img src="../images/'+img+'"  alt="'+title+'">'+
+                '    </div>'+
+                '    <div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">'+
+                '      <p >'+text+'</p>'+
+                '    </div>'+
+                '  </div>'+
+                '</div>';
+  } else {
+    content += '<p>'+text+'</p>';
+  }
+  content += '</div>';
 }
 function showtabs(dropdownItem){
 
@@ -235,18 +253,21 @@ function showtabs(dropdownItem){
   });
 }
 
-function homeContent (tabContent){
+function homeContent (dropdownItem,tabContent){
   var homeContents = document.querySelectorAll(".homeContent");
-  var homePage = document.querySelectorAll(".homePage");
+  var homePage = document.querySelectorAll(".homePage"); 
   homePage[0].onclick = function (){
+      dropdownItem.forEach(function(el){
+        el.classList.remove("active");
+      });
       tabContent.forEach(function(el){
-      el.classList.remove("active");
-    });
-    homeContents.forEach(function (el){
-      if (!el.classList.contains("active")){
-          el.classList.add("active"); 
-      }
-    });
+        el.classList.remove("active");
+      });
+      homeContents.forEach(function (el){
+        if (!el.classList.contains("active")){
+            el.classList.add("active"); 
+        }
+      });
   }
   
 }

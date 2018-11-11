@@ -17,27 +17,30 @@
 }
 
 .tab-content {
-	background-color: #ffffff;
 	opacity: 0.6;
-	border-radius: 3em;
-	margin: 25px auto;
+	margin: 15px auto;
     height: 75%;
 }
 
 .tab-content p {
-	margin: 35px;
-	font-weight: 600px;
+	text-align: left;
+	margin: 0 35px;
+	font-weight: 600;
 	font-size: 16px;
 	font-style: "Comic Sans MS", cursive, sans-serif;
 }
 
 .tab-content h3 {
-	font-style: "Comic Sans MS", cursive, sans-serif;
 	font-weight: Bold;
 	padding-top: 35px;
-	margin-left: 35px;
 	font-weight: 600px;
-	font-size: 16px;
+	color: #000;
+	font-family: 'GlacialIndifferenceRegular';
+	font-size:22px;
+}
+
+.tab-content img {
+	max-width: 95%;
 }
 
 #content {
@@ -129,18 +132,16 @@ hr {
 
 .dropdown-item:hover {
 	color: #fff;
-	background-color: #007BFF;
-}
-
-.tab-content h3 {
-	color: #000;
-	font-family: 'GlacialIndifferenceRegular';
-	font-size:22px;
+	background-color: #4da3ff;
 }
 
 #lifeAtContent {
 	padding-top: 5px;
 	margin: 0 10px;
+}
+
+#lifeAtContent .tab-content {
+	background-color: transparent;
 }
 
 .active {
@@ -152,12 +153,8 @@ hr {
 	margin: 25px;
 }
 
-#leftContent {
+#leftContent , #rightContent {
 	text-align: center;	
-}
-
-#rightContent {
-	text-align: center;
 }
 
 .textContent {
@@ -294,7 +291,7 @@ hr {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 2.5s;
   animation-name: fade;
-  animation-duration: 2.5s;
+  animation-duration: 2.8s;
 }
 
 @-webkit-keyframes fade {
