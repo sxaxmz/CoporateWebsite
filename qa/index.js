@@ -10,6 +10,7 @@ var content,src,caption,length,img,text,tag,position,slideIndex,title,id;
 i = 0;
 slideIndex = 0; 
 tag = "qa";
+document.title = "QA CORPORATE";
 
 logo(tag, img);
 getDropdownList(tag,id,title,text,img);

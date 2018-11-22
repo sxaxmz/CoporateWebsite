@@ -1,7 +1,6 @@
 #header {
 	height: 100%;
 	background-position: center;
-	background-position: fixed;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -19,7 +18,7 @@
 .tab-content {
 	text-align: center;
 	background-color: #ffffff;
- 	opacity: 0.6;
+ 	opacity: 0.7;
  	border-radius: 3em;
  	margin: 25px auto;
     height: 75%;
@@ -42,7 +41,10 @@
 }
 
 .tab-content img {
-	max-width: 95%;
+	max-width: 98%;
+	max-height: 280px;
+	object-fit: cover;
+	border-radius: 2em;
 }
 
 #content {
