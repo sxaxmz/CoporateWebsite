@@ -77,12 +77,11 @@
 	text-align: center !important;
 }
 
-.qa-top-page {
+.top-page {
 	background-color: #d7d7d7;
-	height: 160px;
 }
 
-#contentQA {
+#contentSiteMain {
 	background-color: #CFE0E8;
 	height: 100%;
 	padding-bottom: 12%;
