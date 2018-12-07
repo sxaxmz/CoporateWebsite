@@ -1,17 +1,17 @@
-var QALogo = document.getElementById("Logo");
-var contentQA1 = document.getElementById("content1");
+var Logo = document.getElementById("Logo");
+var content1 = document.getElementById("content1");
 var slideImg = document.getElementById("slideImg");
-var header = document.getElementById("qa-top-page");
-var contentQA1Left = document.getElementById("leftContent");
-var contentQA1Right = document.getElementById("rightContent");
+var header = document.getElementById("us-top-page");
+var content1Left = document.getElementById("leftContent");
+var content1Right = document.getElementById("rightContent");
 var dropdownList = document.getElementById("dropdownList");
 var lifeAtContent = document.getElementById("lifeAtContent");
 var logoLink = document.getElementById("logoLink");
 var content,src,caption,length,img,text,tag,position,slideIndex,title,id;
 i = 0;
 slideIndex = 0; 
-tag = "qa";
-document.title = "QA CORPORATE";
+tag = "us";
+document.title = "US CORPORATE";
 logoLink.href = "../";
 
 logo(tag, img);
@@ -106,14 +106,14 @@ function logo (tag, img){
       img = item["img"];
     }
   });
-  QALogo.innerHTML = "<img src="+img+" alt="+tag+">";
+  Logo.innerHTML = "<img src="+img+" alt="+tag+">";
 }
 
 grab_imgs(img);
 function grab_imgs (img){
   var json = JSON.parse(imgBanner);
   json.forEach(function(item){
-    if (item["tag"] =="qa"){
+    if (item["tag"] == tag){
     img = item["img"];
     deploy_imgs(img);
     }
@@ -155,25 +155,25 @@ function setContent (img, text, position){
 
   if (position == "right"){
       if (img == ""){     
-        contentQA1Right.classList.add("textContent");
+        content1Right.classList.add("textContent");
         content = '<p>'+text+'</p>';
     } else {
-      contentQA1Right.classList.add("mediaContent");
+      content1Right.classList.add("mediaContent");
       content = '<img src="../images/'+img+'">';
    }
-    contentQA1Right.innerHTML = content;
+    content1Right.innerHTML = content;
   }
   
 
   if (position == "left"){
       if (img == ""){       
-        contentQA1Left.classList.add("textContent");
+        content1Left.classList.add("textContent");
         content = '<p>'+text+'</p>';
     } else {
-      contentQA1Left.classList.add("mediaContent");
+      content1Left.classList.add("mediaContent");
       content = '<img src="../images/'+img+'">';
     }
-    contentQA1Left.innerHTML = content;
+    content1Left.innerHTML = content;
   }  
  
 }
@@ -251,7 +251,7 @@ function showtabs(dropdownItem){
       dropdownItem[i].classList.remove("active");
       }
       slideImg.classList.remove("active");
-      contentQA1.classList.remove("active");
+      content1.classList.remove("active");
     }
   });
 }
