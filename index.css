@@ -77,8 +77,12 @@
 	text-align: center !important;
 }
 
-.top-page {
-	background-color: #d7d7d7;
+#top-page {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+	width: 100%;
+	padding-top:25px;
 }
 
 #contentSiteMain {
@@ -88,8 +92,6 @@
 }
 
 #Logo img {
-	height: 130px;
-	width: 150px;
 	margin: 20px;
 }
 

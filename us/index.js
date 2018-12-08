@@ -6,13 +6,12 @@ var content1Left = document.getElementById("leftContent");
 var content1Right = document.getElementById("rightContent");
 var dropdownList = document.getElementById("dropdownList");
 var lifeAtContent = document.getElementById("lifeAtContent");
-var logoLink = document.getElementById("logoLink");
-var content,src,caption,length,img,text,tag,position,slideIndex,title,id;
+var content,src,caption,length,img,text,tag,position,slideIndex,title,id,logoLink,height,width;
 i = 0;
 slideIndex = 0; 
 tag = "us";
 document.title = "US CORPORATE";
-logoLink.href = "../";
+logoLink = "../";
 
 logo(tag, img);
 getDropdownList(tag,id,title,text,img);
@@ -106,22 +105,41 @@ function logo (tag, img){
       img = item["img"];
     }
   });
-  Logo.innerHTML = "<img src="+img+" alt="+tag+">";
+  Logo.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>';
 }
 
-grab_imgs(img);
-function grab_imgs (img){
+grab_banners(img);
+function grab_banners (img){
   var json = JSON.parse(imgBanner);
   json.forEach(function(item){
     if (item["tag"] == tag){
-    img = item["img"];
-    deploy_imgs(img);
+        img = "../images/"+item["img"];
+        //getImgSize(img);
+        deploy_banners(img);
     }
   });
 }
 
-function deploy_imgs (img){
-  header.style.backgroundImage = "url('../images/"+img+"')";
+function getImgSize (img) {
+  var imgLoader = new Image();
+  imgLoader.onload = function() { // assign onload handler
+        height = imgLoader.height;
+        width = imgLoader.width;   
+        callback(img,height,width);  
+    }
+    imgLoader.src = img; // set the image source
+}
+
+function callback (img,h, w){  
+  height = h;
+  width = w;
+  deploy_banners(img,height,width);
+}
+
+function deploy_banners (img){ 
+  header.style.backgroundImage = "url('"+img+"')";
+  //header.style.bottom = height / width * 100; /* (img-height / img-width * container-width) */
+  //console.log(height +' '+ width );
 }
 
 getContent(tag,img,text,position);

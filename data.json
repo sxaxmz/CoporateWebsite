@@ -1,7 +1,7 @@
 var imgBanner = '[{"tag":"main", "img" : "images2.jpg"},'+
 				' {"tag":"qa","img":"header-banner.jpg"},'+
 				' {"tag":"uk","img":"header-banner.jpg"},'+
-				' {"tag":"us","img":"header-banner.jpg"}]';
+				' {"tag":"us","img":"company_gif.gif"}]';
 
 var slideImgs = '[ {"id":"01", "src":"../images/images.jpg", "caption":"Lorem ipsum dolor sit amet, alterum delenit meliore ius an."},'+
 			    '  {"id":"02", "src":"../images/images2.jpg", "caption":"Lorem ipsum dolor sit amet, alterum delenit meliore ius an. Est te odio ipsum primis, noster epicuri per ex, te tale natum appellantur qui. Est ad tale hinc laboramus."}]';
