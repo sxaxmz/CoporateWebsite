@@ -244,22 +244,24 @@ function setDropdownItems (id,title){
 function setDropdownTabs(id,title,text,img){
   content +=  '<div id="'+id+'" class="tab-pane fade show row" role="tabpanel" aria-labelledby="pills-'+id+'-tab">'+             
               '<h3>'+title+'</h3>'+
-              '<hr>'; 
+              '<hr>'+ 
+              '   <div class="container">'+
+              '     <div class="row">';
   if (img !== "") { 
-    content +=  '<div class="container">'+
-                '  <div class="row">'+
-                '    <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12" style="height: 280px;">'+
+    content +=  '    <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12" style="height: 280px;">'+
                 '      <img src="../images/'+img+'"  alt="'+title+'">'+
                 '    </div>'+
                 '    <div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">'+
                 '      <p >'+text+'</p>'+
-                '    </div>'+
-                '  </div>'+
-                '</div>';
+                '    </div>';
   } else {
-    content += '<p>'+text+'</p>';
+    content +=  '    <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12 center">'+
+                '     <p>'+text+'</p>'+
+                '    </div>';
   }
-  content += '</div>';
+  content += '      </div>'+
+             '    </div>'+
+             '</div>';
 }
 function showtabs(dropdownItem){
 
