@@ -1,4 +1,6 @@
-var Logo = document.getElementById("Logo");
+var contentSiteMain = document.getElementById("contentSiteMain");
+var headerColumn1 = document.getElementById("col1");
+var headerColumn2 = document.getElementById("col2");
 var content1 = document.getElementById("content1");
 var slideImg = document.getElementById("slideImg");
 var header = document.getElementById("top-page");
@@ -6,15 +8,13 @@ var content1Left = document.getElementById("leftContent");
 var content1Right = document.getElementById("rightContent");
 var dropdownList = document.getElementById("dropdownList");
 var lifeAtContent = document.getElementById("lifeAtContent");
-var logoLink = document.getElementById("logoLink");
-var content,src,caption,length,img,text,tag,position,slideIndex,title,id;
+var content,src,caption,length,img,text,tag,position,slideIndex,title,id,logoLink,height,width,media,column;
 i = 0;
 slideIndex = 0; 
 tag = "qa";
 document.title = "QA CORPORATE";
-logoLink.href = "../";
+logoLink = "../";
 
-logo(tag, img);
 getDropdownList(tag,id,title,text,img);
 jsonImg(src,caption,length);
 showSlides(slideIndex);
@@ -99,36 +99,97 @@ function jsonImg (src,caption,length) {
   slideHoverEffect(slideContainer,next,previous);
 }
 
-function logo (tag, img){
-  var json = JSON.parse(logos);
-  json.forEach(function(item){
-    if (item["tag"] == tag){
-      img = item["img"];
-    }
-  });
-  Logo.innerHTML = "<img src="+img+" alt="+tag+">";
+function logo (column, img){
+
+  if (column == 1){
+    headerColumn1.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>>';
+  }
+  if (column == 2){
+    headerColumn2.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>';
+  }
 }
 
-grab_imgs(img);
-function grab_imgs (img){
+grab_banners(img);
+function grab_banners (img){
   var json = JSON.parse(imgBanner);
   json.forEach(function(item){
     if (item["tag"] == tag){
-    img = item["img"];
-    deploy_imgs(img);
+        img = "../images/"+item["img"];
+        //getImgSize(img);
+        deploy_banners(img);
+    }
+  });
+
+
+  json = JSON.parse(logos);
+  json.forEach(function(item){
+    if (item["tag"] == tag){
+      img = item["img"];
+      column = item["column"];
+      logo(column,img);
+    }
+  });
+ 
+
+  json = JSON.parse(bannerMedia);
+  json.forEach(function(item){
+    if (item["tag"] == tag){
+        img = item["src"];
+        column = item["column"];
+        bannersMedia(column,img);
     }
   });
 }
 
-function deploy_imgs (img){
-  header.style.backgroundImage = "url('../images/"+img+"')";
+function getImgSize (img) {
+  var imgLoader = new Image();
+  imgLoader.onload = function() { // assign onload handler
+        height = imgLoader.height;
+        width = imgLoader.width;   
+        callback(img,height,width);  
+    }
+    imgLoader.src = img; // set the image source
+}
+
+function callback (img,h, w){  
+  height = h;
+  width = w;
+  deploy_banners(img,height,width);
+}
+
+function deploy_banners (img){ 
+  header.style.backgroundImage = "url('"+img+"')";
+  //header.style.bottom = height / width * 100; /* (img-height / img-width * container-width) */
+  //console.log(height +' '+ width );
+}
+
+function bannersMedia (column,img){
+  if (column == 1){
+    headerColumn1.innerHTML = '<img class="bannerMedia" src="'+img+'">';
+  }
+  if (column == 2){
+    headerColumn2.innerHTML = '<img class="bannerMedia" src="'+img+'">';
+  }
 }
 
 getContent(tag,img,text,position);
 function getContent(tag,img,text,position){
+  var json = JSON.parse(contentBackground);
+  json.forEach(function(item){
+    if (item["tag"] == tag){
+      content = item["background"];
+      if (item["type"] == "color"){
+        contentSiteMain.style.backgroundColor = content;
+      }
+
+      if (item["type"] == "image"){
+        contentSiteMain.style.backgroundImage = content;
+      }     
+    }
+  });
   
-  var jsonImg = JSON.parse(mainImgs);
-  jsonImg.forEach(function(item,index){
+  json = JSON.parse(mainImgs);
+  json.forEach(function(item,index){
     text = "";
     img = "";
     if (tag == item["tag"]){
@@ -138,8 +199,8 @@ function getContent(tag,img,text,position){
     }
   });
 
-  var jsonText = JSON.parse(mainTexts);
-  jsonText.forEach(function(item,index){
+  json = JSON.parse(mainTexts);
+  json.forEach(function(item,index){
     text = "";
     img = "";
     if (tag == item["tag"]){
@@ -226,22 +287,24 @@ function setDropdownItems (id,title){
 function setDropdownTabs(id,title,text,img){
   content +=  '<div id="'+id+'" class="tab-pane fade show row" role="tabpanel" aria-labelledby="pills-'+id+'-tab">'+             
               '<h3>'+title+'</h3>'+
-              '<hr>'; 
+              '<hr>'+ 
+              '   <div class="container">'+
+              '     <div class="row">';
   if (img !== "") { 
-    content +=  '<div class="container">'+
-                '  <div class="row">'+
-                '    <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12" style="height: 280px;">'+
+    content +=  '    <div class="col-lg-5 col-md-5 col-xs-12 col-sm-12" style="height: 280px;">'+
                 '      <img src="../images/'+img+'"  alt="'+title+'">'+
                 '    </div>'+
                 '    <div class="col-lg-7 col-md-7 col-xs-12 col-sm-12">'+
                 '      <p >'+text+'</p>'+
-                '    </div>'+
-                '  </div>'+
-                '</div>';
+                '    </div>';
   } else {
-    content += '<p>'+text+'</p>';
+    content +=  '    <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12 center">'+
+                '     <p>'+text+'</p>'+
+                '    </div>';
   }
-  content += '</div>';
+  content += '      </div>'+
+             '    </div>'+
+             '</div>';
 }
 function showtabs(dropdownItem){
 

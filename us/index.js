@@ -1,4 +1,6 @@
-var Logo = document.getElementById("Logo");
+var contentSiteMain = document.getElementById("contentSiteMain");
+var headerColumn1 = document.getElementById("col1");
+var headerColumn2 = document.getElementById("col2");
 var content1 = document.getElementById("content1");
 var slideImg = document.getElementById("slideImg");
 var header = document.getElementById("top-page");
@@ -6,14 +8,13 @@ var content1Left = document.getElementById("leftContent");
 var content1Right = document.getElementById("rightContent");
 var dropdownList = document.getElementById("dropdownList");
 var lifeAtContent = document.getElementById("lifeAtContent");
-var content,src,caption,length,img,text,tag,position,slideIndex,title,id,logoLink,height,width;
+var content,src,caption,length,img,text,tag,position,slideIndex,title,id,logoLink,height,width,media,column;
 i = 0;
 slideIndex = 0; 
 tag = "us";
 document.title = "US CORPORATE";
 logoLink = "../";
 
-logo(tag, img);
 getDropdownList(tag,id,title,text,img);
 jsonImg(src,caption,length);
 showSlides(slideIndex);
@@ -98,14 +99,14 @@ function jsonImg (src,caption,length) {
   slideHoverEffect(slideContainer,next,previous);
 }
 
-function logo (tag, img){
-  var json = JSON.parse(logos);
-  json.forEach(function(item){
-    if (item["tag"] == tag){
-      img = item["img"];
-    }
-  });
-  Logo.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>';
+function logo (column, img){
+
+  if (column == 1){
+    headerColumn1.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>>';
+  }
+  if (column == 2){
+    headerColumn2.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>';
+  }
 }
 
 grab_banners(img);
@@ -116,6 +117,26 @@ function grab_banners (img){
         img = "../images/"+item["img"];
         //getImgSize(img);
         deploy_banners(img);
+    }
+  });
+
+
+  json = JSON.parse(logos);
+  json.forEach(function(item){
+    if (item["tag"] == tag){
+      img = item["img"];
+      column = item["column"];
+      logo(column,img);
+    }
+  });
+ 
+
+  json = JSON.parse(bannerMedia);
+  json.forEach(function(item){
+    if (item["tag"] == tag){
+        img = item["src"];
+        column = item["column"];
+        bannersMedia(column,img);
     }
   });
 }
@@ -142,11 +163,33 @@ function deploy_banners (img){
   //console.log(height +' '+ width );
 }
 
+function bannersMedia (column,img){
+  if (column == 1){
+    headerColumn1.innerHTML = '<img class="bannerMedia" src="'+img+'">';
+  }
+  if (column == 2){
+    headerColumn2.innerHTML = '<img class="bannerMedia" src="'+img+'">';
+  }
+}
+
 getContent(tag,img,text,position);
 function getContent(tag,img,text,position){
+  var json = JSON.parse(contentBackground);
+  json.forEach(function(item){
+    if (item["tag"] == tag){
+      content = item["background"];
+      if (item["type"] == "color"){
+        contentSiteMain.style.backgroundColor = content;
+      }
+
+      if (item["type"] == "image"){
+        contentSiteMain.style.backgroundImage = content;
+      }     
+    }
+  });
   
-  var jsonImg = JSON.parse(mainImgs);
-  jsonImg.forEach(function(item,index){
+  json = JSON.parse(mainImgs);
+  json.forEach(function(item,index){
     text = "";
     img = "";
     if (tag == item["tag"]){
@@ -156,8 +199,8 @@ function getContent(tag,img,text,position){
     }
   });
 
-  var jsonText = JSON.parse(mainTexts);
-  jsonText.forEach(function(item,index){
+  json = JSON.parse(mainTexts);
+  json.forEach(function(item,index){
     text = "";
     img = "";
     if (tag == item["tag"]){

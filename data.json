@@ -1,12 +1,12 @@
 var imgBanner = '[{"tag":"main", "img" : "images2.jpg"},'+
 				' {"tag":"qa","img":"header-banner.jpg"},'+
-				' {"tag":"uk","img":"header-banner.jpg"},'+
+				' {"tag":"uk","img":""},'+
 				' {"tag":"us","img":"company_gif.gif"}]';
 
 var slideImgs = '[ {"id":"01", "src":"../images/images.jpg", "caption":"Lorem ipsum dolor sit amet, alterum delenit meliore ius an."},'+
 			    '  {"id":"02", "src":"../images/images2.jpg", "caption":"Lorem ipsum dolor sit amet, alterum delenit meliore ius an. Est te odio ipsum primis, noster epicuri per ex, te tale natum appellantur qui. Est ad tale hinc laboramus."}]';
 
-var logos = '[{"tag":"qa", "img":"../images/logo4.png"},{"tag":"uk", "img":"../images/logo4.png"},{"tag":"us", "img":"../images/logo4.png"}]';
+var logos = '[{"tag":"qa", "column":"1", "img":"../images/logo4.png"},{"tag":"uk", "column":"1", "img":"../images/logo4.png"},{"tag":"us", "column":"1", "img":"../images/logo4.png"}]';
 
 var mainImgs = '[{"tag":"qa", "position": "left", "img":"images3.jpg"},{"tag":"uk", "position": "left", "img":"images3.jpg"},{"tag":"us", "position": "left", "img":"images3.jpg"}]'
 
@@ -33,3 +33,10 @@ var dropdownTabs =  '[{"tag":"qa", "elId":"campus", "img":"campus.jpg", "txtCont
 					' {"tag":"us", "elId":"campus", "img":"campus.jpg", "txtContent":"Lorem ipsum dolor sit amet, alterum delenit meliore ius an. Est te odio ipsum primis, noster epicuri per ex, te tale natum appellantur qui. Est ad tale hinc laboramus. Qui cibo voluptatum te. Ius ut omnium aliquando, vel voluptua postulant no, nec esse congue argumentum ne. Libris facilisi repudiandae ex vim, hinc minim salutandi ei per, qui alia eros explicari ei. Enim nulla libris ius cu. Lorem ipsum dolor sit amet, alterum delenit meliore ius an. Est te odio ipsum primis, noster epicuri per ex, te tale natum appellantur qui. Est ad tale hinc laboramus. Qui cibo voluptatum te. Ius ut omnium aliquando, vel voluptua postulant no, nec esse congue argumentum ne. Libris facilisi repudiandae ex vim, hinc minim salutandi ei per, qui alia eros explicari ei. Enim nulla libris ius cu."},'+
 					' {"tag":"us", "elId":"entertainmentZone", "img":"", "txtContent":"Lorem ipsum dolor sit amet, alterum delenit meliore ius an. Est te odio ipsum primis, noster epicuri per ex, te tale natum appellantur qui. Est ad tale hinc laboramus. Qui cibo voluptatum te. Ius ut omnium aliquando, vel voluptua postulant no, nec esse congue argumentum ne. Libris facilisi repudiandae ex vim, hinc minim salutandi ei per, qui alia eros explicari ei. Enim nulla libris ius cu."},'+
 					' {"tag":"us", "elId":"workplaces", "img":"", "txtContent":"Lorem ipsum dolor sit amet, alterum delenit meliore ius an. Est te odio ipsum primis, noster epicuri per ex, te tale natum appellantur qui. Est ad tale hinc laboramus. Qui cibo voluptatum te. Ius ut omnium aliquando, vel voluptua postulant no, nec esse congue argumentum ne. Libris facilisi repudiandae ex vim, hinc minim salutandi ei per, qui alia eros explicari ei. Enim nulla libris ius cu."}]'
+
+
+var bannerMedia = '[{"tag":"uk", "column":"2", "src":"../images/company_gif.gif"}]'
+
+var contentBackground = '[{"tag":"qa", "type":"color", "background":"#CFE0E8"},'+
+						' {"tag":"uk", "type":"", "background":""},'+
+						' {"tag":"us", "type":"color", "background":"#CFE0E8"}]'
