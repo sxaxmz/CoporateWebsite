@@ -2,6 +2,7 @@ var contentSiteMain = document.getElementById("contentSiteMain");
 var headerColumn1 = document.getElementById("col1");
 var headerColumn2 = document.getElementById("col2");
 var content1 = document.getElementById("content1");
+var content2 = document.getElementById("content2");
 var slideImg = document.getElementById("slideImg");
 var header = document.getElementById("top-page");
 var content1Left = document.getElementById("leftContent");
@@ -102,7 +103,7 @@ function jsonImg (src,caption,length) {
 function logo (column, img){
 
   if (column == 1){
-    headerColumn1.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>>';
+    headerColumn1.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>';
   }
   if (column == 2){
     headerColumn2.innerHTML = '<a href="'+logoLink+'"><img src="'+img+'" alt="'+tag+'"></a>';
@@ -307,14 +308,15 @@ function setDropdownTabs(id,title,text,img){
              '</div>';
 }
 function showtabs(dropdownItem){
-
   dropdownItem.forEach(function(el){
     el.onclick = function (){
       for (var i=0; i<dropdownItem.length; i++){
       dropdownItem[i].classList.remove("active");
       }
+
       slideImg.classList.remove("active");
       content1.classList.remove("active");
+      content2.classList.remove("active");
     }
   });
 }
