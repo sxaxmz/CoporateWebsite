@@ -40,3 +40,6 @@ var bannerMedia = '[{"tag":"uk", "column":"2", "src":"../images/company_gif.gif"
 var contentBackground = '[{"tag":"qa", "type":"color", "background":"#CFE0E8"},'+
 						' {"tag":"uk", "type":"", "background":""},'+
 						' {"tag":"us", "type":"color", "background":"#CFE0E8"}]'
+
+var panels = '[{"tag":"uk", "img":"header-banner.jpg", "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."},'+
+			 ' {"tag":"uk", "img":"campus.jpg", "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}]'

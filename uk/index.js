@@ -339,3 +339,33 @@ function homeContent (dropdownItem,tabContent){
   }
   
 }
+
+getPanel(text,img,i);
+
+function getPanel (text,img,i){
+  content = "<";
+  i = 0;
+  var json = JSON.parse(panels);
+  json.forEach(function(item,index){
+    if (tag == item["tag"]){
+      text = item["text"];
+      img = item["img"];
+      setPanel(text,img,i);
+    }
+    i++;
+  });
+
+  content2.innerHTML = content;
+}
+
+function setPanel (text,img,index){
+  content += '<div  class="panel" style="background-image: url(../images/'+img+');">';
+  content += '<div id="panel'+index+'" class="panelFooter center">'+
+            '       <div class="panelText center">'+
+            '         <p>'+text+'</p>'+
+            '       </div>'+
+            '         <div class="panelFooterLine"></div>'+
+            '       </div>'+
+            '</div>';
+
+}

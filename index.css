@@ -204,7 +204,7 @@ hr {
 .panel {
 	position: relative;
 	height: 500px;
-	background-image: url('images/header-banner.jpg');
+	border-top: 15px solid #007BFF;
 }
 
 .panelFooter{
@@ -216,6 +216,7 @@ hr {
 .panelFooterLine {
 	background-color: #d7d7d7;
 	height: 40px;
+	width: 100%;
 }
 .panelText {
 	background-color: #d7d7d7;
@@ -227,7 +228,7 @@ hr {
 }
 
 .homeContent {
-	border-top: 15px solid #007BFF;
+	
 }
 
 											/** Beginning of slideshow **/
